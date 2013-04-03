@@ -1,0 +1,10 @@
+[user]
+	name = Vinicius Mendes
+	email = vinicius.mendes@corp.globo.com
+[alias]
+	ci = commit
+	st = status
+	co = checkout
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[color]
+	ui = true
