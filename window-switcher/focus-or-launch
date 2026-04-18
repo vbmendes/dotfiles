@@ -1,0 +1,63 @@
+#!/bin/bash
+# Focus an existing window matching PATTERN, or launch COMMAND.
+# If multiple windows match, cycles through them on each invocation.
+# Usage: focus-or-launch [--class <wm-class>] <window-pattern> <launch-command>
+
+USE_CLASS=false
+CLASS=""
+
+if [[ "$1" == "--class" ]]; then
+  USE_CLASS=true
+  CLASS="$2"
+  shift 2
+fi
+
+PATTERN="$1"
+COMMAND="$2"
+
+if $USE_CLASS; then
+  WINDOWS=$(xdotool search --classname "$CLASS" 2>/dev/null)
+  STATE_KEY="$CLASS"
+else
+  WINDOWS=$(wmctrl -l | grep -i "$PATTERN" | awk '{print $1}')
+  STATE_KEY="$PATTERN"
+fi
+
+if [[ -z "$WINDOWS" ]]; then
+  eval "$COMMAND"
+  exit 0
+fi
+
+WINDOW_COUNT=$(echo "$WINDOWS" | wc -l)
+
+focus_window() {
+  local id="$1"
+  if $USE_CLASS; then
+    xdotool windowactivate --sync "$id"
+  else
+    wmctrl -ia "$id"
+  fi
+}
+
+if [[ "$WINDOW_COUNT" -eq 1 ]]; then
+  focus_window "$WINDOWS"
+  exit 0
+fi
+
+STATE_FILE="/tmp/focus-cycle-$(echo "$STATE_KEY" | tr ' /' '__')"
+LAST=$(cat "$STATE_FILE" 2>/dev/null)
+
+NEXT=""
+FOUND=false
+while IFS= read -r WIN; do
+  if $FOUND; then
+    NEXT="$WIN"
+    break
+  fi
+  [[ "$WIN" == "$LAST" ]] && FOUND=true
+done <<< "$WINDOWS"
+
+[[ -z "$NEXT" ]] && NEXT=$(echo "$WINDOWS" | head -1)
+
+focus_window "$NEXT"
+echo "$NEXT" > "$STATE_FILE"

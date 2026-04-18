@@ -1,0 +1,49 @@
+#!/bin/bash
+# Removes all GNOME custom keybindings created by this dotfiles setup.
+# Entries are identified by the 'vbmendes-dotfiles-' path prefix.
+
+BASE=org.gnome.settings-daemon.plugins.media-keys
+SCHEMA="$BASE.custom-keybinding"
+PREFIX="/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/vbmendes-dotfiles-"
+
+current=$(gsettings get "$BASE" custom-keybindings)
+
+if [[ "$current" == "@as []" ]]; then
+  echo "No custom keybindings registered."
+  exit 0
+fi
+
+# Extract paths into an array
+mapfile -t all_paths < <(echo "$current" | tr -d "[]'" | tr ',' '\n' | tr -d ' ')
+
+kept=()
+removed=()
+for path in "${all_paths[@]}"; do
+  [[ -z "$path" ]] && continue
+  if [[ "$path" == ${PREFIX}* ]]; then
+    removed+=("$path")
+    gsettings reset "$SCHEMA:$path" name    2>/dev/null
+    gsettings reset "$SCHEMA:$path" command 2>/dev/null
+    gsettings reset "$SCHEMA:$path" binding 2>/dev/null
+  else
+    kept+=("$path")
+  fi
+done
+
+if [[ "${#removed[@]}" -eq 0 ]]; then
+  echo "No vbmendes-dotfiles shortcuts found."
+  exit 0
+fi
+
+if [[ "${#kept[@]}" -eq 0 ]]; then
+  gsettings set "$BASE" custom-keybindings "@as []"
+else
+  new_list=$(printf "'%s'," "${kept[@]}")
+  new_list="[${new_list%,}]"
+  gsettings set "$BASE" custom-keybindings "$new_list"
+fi
+
+echo "Removed ${#removed[@]} shortcut(s):"
+for p in "${removed[@]}"; do
+  echo "  $p"
+done
