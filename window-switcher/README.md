@@ -40,6 +40,13 @@ Add a single new shortcut without re-running the full setup. Appends the entry t
 ./add-shortcut <KEY> <NAME> --chrome-app <SEARCH> --pattern <PATTERN>
 ```
 
+Examples:
+
+```bash
+./add-shortcut f "Open Firefox" --launch firefox --pattern firefox
+./add-shortcut g "Open Gmail" --chrome-app gmail --pattern gmail
+```
+
 The `--chrome-app` mode searches `~/.local/share/applications/chrome-*.desktop` by app name, extracts the app ID, and derives the correct `gtk-launch` command and `crx_<id>` WM_CLASS automatically.
 
 If the key is already bound, the script prints the existing binding and prompts you to confirm before replacing it. Pass `--no-apply` to update `setup.sh` without registering the shortcut in gsettings immediately.
