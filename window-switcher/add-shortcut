@@ -1,0 +1,212 @@
+#!/bin/bash
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SETUP_FILE="$SCRIPT_DIR/setup.sh"
+
+usage() {
+  cat <<EOF
+Usage:
+  $(basename "$0") <KEY> <NAME> --launch <COMMAND> --pattern <PATTERN>
+  $(basename "$0") <KEY> <NAME> --chrome-app <SEARCH> --pattern <PATTERN>
+
+Arguments:
+  KEY     Single key to bind (combined with MODIFIER from setup.sh)
+  NAME    Human-readable name for the shortcut
+
+Options:
+  --launch <COMMAND>    Direct launch command
+  --pattern <PATTERN>   Window title pattern used to detect running windows (required)
+  --chrome-app <SEARCH> Find a Chrome installed app by name and auto-detect launch command and WM_CLASS
+  --no-apply            Only update setup.sh; skip registering the shortcut in gsettings
+EOF
+  exit 1
+}
+
+[[ $# -lt 3 ]] && usage
+
+KEY="$1"
+NAME="$2"
+shift 2
+
+MODE=""
+COMMAND=""
+PATTERN=""
+WM_CLASS=""
+CHROME_SEARCH=""
+APPLY=true
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --launch)
+      MODE="launch"
+      COMMAND="$2"
+      shift 2
+      ;;
+    --pattern)
+      PATTERN="$2"
+      shift 2
+      ;;
+    --chrome-app)
+      MODE="chrome-app"
+      CHROME_SEARCH="$2"
+      shift 2
+      ;;
+    --no-apply)
+      APPLY=false
+      shift
+      ;;
+    *)
+      echo "Unknown option: $1" >&2
+      usage
+      ;;
+  esac
+done
+
+[[ -z "$MODE" ]] && usage
+
+# ── Chrome app mode ────────────────────────────────────────────────────────────
+
+if [[ "$MODE" == "chrome-app" ]]; then
+  DESKTOP_DIR="$HOME/.local/share/applications"
+
+  # Search by Name= field inside chrome-*.desktop files
+  mapfile -t matches < <(
+    grep -ril "$CHROME_SEARCH" "$DESKTOP_DIR"/chrome-*.desktop 2>/dev/null || true
+  )
+
+  if [[ ${#matches[@]} -eq 0 ]]; then
+    echo "No Chrome apps found matching: $CHROME_SEARCH" >&2
+    echo "" >&2
+    echo "Available Chrome apps:" >&2
+    for f in "$DESKTOP_DIR"/chrome-*.desktop; do
+      [[ -f "$f" ]] || continue
+      app_name=$(grep -m1 '^Name=' "$f" | cut -d= -f2-)
+      echo "  $app_name  ($(basename "$f" .desktop))" >&2
+    done
+    exit 1
+  fi
+
+  if [[ ${#matches[@]} -gt 1 ]]; then
+    echo "Multiple Chrome apps found:" >&2
+    for i in "${!matches[@]}"; do
+      app_name=$(grep -m1 '^Name=' "${matches[$i]}" | cut -d= -f2-)
+      echo "  $((i+1)). $app_name  ($(basename "${matches[$i]}" .desktop))" >&2
+    done
+    echo -n "Select [1-${#matches[@]}]: " >&2
+    read -r choice
+    selected="${matches[$((choice - 1))]}"
+  else
+    selected="${matches[0]}"
+  fi
+
+  filename=$(basename "$selected" .desktop)
+
+  # chrome-<32-char-app-id>-<Profile_N>
+  if [[ "$filename" =~ ^chrome-([a-z]{32})-(.+)$ ]]; then
+    app_id="${BASH_REMATCH[1]}"
+  else
+    echo "Could not parse app ID from filename: $filename" >&2
+    echo "Expected pattern: chrome-<32-char-id>-<profile>" >&2
+    exit 1
+  fi
+
+  COMMAND="gtk-launch $filename"
+  WM_CLASS="crx_$app_id"
+
+  if [[ -z "$PATTERN" ]]; then
+    echo "Error: --pattern is required" >&2
+    usage
+  fi
+
+  app_display_name=$(grep -m1 '^Name=' "$selected" | cut -d= -f2-)
+  echo "Found: $app_display_name"
+  echo "  Desktop file : $filename"
+  echo "  Launch command: $COMMAND"
+  echo "  WM_CLASS      : $WM_CLASS"
+  echo "  Pattern       : $PATTERN"
+fi
+
+# ── Launch mode ────────────────────────────────────────────────────────────────
+
+if [[ "$MODE" == "launch" ]]; then
+  if [[ -z "$PATTERN" ]]; then
+    echo "Error: --pattern is required" >&2
+    usage
+  fi
+fi
+
+# ── Check for duplicate key ───────────────────────────────────────────────────
+
+EXISTING_ENTRY=""
+while IFS= read -r line; do
+  # Match lines like: "KEY|NAME|PATTERN|COMMAND[|WM_CLASS]"
+  if [[ "$line" =~ ^[[:space:]]*\"([^|]+)\|([^|]+)\|([^|]+)\|([^\"]+)\"[[:space:]]*$ ]]; then
+    if [[ "${BASH_REMATCH[1]}" == "$KEY" ]]; then
+      EXISTING_ENTRY="$line"
+      break
+    fi
+  fi
+done < "$SETUP_FILE"
+
+if [[ -n "$EXISTING_ENTRY" ]]; then
+  MODIFIER=$(grep '^MODIFIER=' "$SETUP_FILE" | head -1 | cut -d'"' -f2)
+  IFS='|' read -r _ existing_name _ existing_command _ <<< "${EXISTING_ENTRY//\"/}"
+  echo "Key '${MODIFIER}${KEY}' is already bound: $existing_name ($existing_command)"
+  read -r -p "Replace it with '$NAME'? [y/N] " confirm
+  [[ "${confirm,,}" == "y" ]] || exit 0
+  REPLACE=true
+else
+  REPLACE=false
+fi
+
+# ── Build entry string ─────────────────────────────────────────────────────────
+
+if [[ -n "$WM_CLASS" ]]; then
+  new_entry="  \"$KEY|$NAME|$PATTERN|$COMMAND|$WM_CLASS\""
+else
+  new_entry="  \"$KEY|$NAME|$PATTERN|$COMMAND\""
+fi
+
+echo ""
+echo "Adding to SHORTCUTS in setup.sh:"
+echo "  $new_entry"
+echo ""
+
+# ── Insert into setup.sh SHORTCUTS array ──────────────────────────────────────
+
+tmpfile=$(mktemp)
+in_shortcuts=false
+inserted=false
+
+while IFS= read -r line; do
+  if [[ "$line" == "SHORTCUTS=(" ]]; then
+    in_shortcuts=true
+    printf '%s\n' "$line"
+  elif $in_shortcuts && ! $inserted && $REPLACE && [[ "$line" == "$EXISTING_ENTRY" ]]; then
+    printf '%s\n' "$new_entry"
+    inserted=true
+  elif $in_shortcuts && ! $inserted && ! $REPLACE && [[ "$line" == ")" ]]; then
+    printf '%s\n' "$new_entry"
+    inserted=true
+    printf '%s\n' "$line"
+    in_shortcuts=false
+  else
+    printf '%s\n' "$line"
+  fi
+done < "$SETUP_FILE" > "$tmpfile"
+
+mv "$tmpfile" "$SETUP_FILE"
+
+if ! $inserted; then
+  echo "Error: could not find SHORTCUTS array closing ')' in setup.sh" >&2
+  exit 1
+fi
+
+if $APPLY; then
+  raw_entry="${new_entry#"  \""}"
+  raw_entry="${raw_entry%\"}"
+  "$SCRIPT_DIR/register-shortcut" "$raw_entry"
+else
+  echo "Entry added to setup.sh. Run setup.sh to apply."
+fi

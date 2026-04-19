@@ -1,0 +1,52 @@
+#!/bin/bash
+# Register a single shortcut entry into GNOME gsettings.
+# Usage: register-shortcut "KEY|NAME|PATTERN|COMMAND[|WM_CLASS]"
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+[[ $# -ne 1 ]] && { echo "Usage: $(basename "$0") \"KEY|NAME|PATTERN|COMMAND[|WM_CLASS]\"" >&2; exit 1; }
+
+MODIFIER=$(grep '^MODIFIER=' "$SCRIPT_DIR/setup.sh" | head -1 | cut -d'"' -f2)
+
+IFS='|' read -r key name pattern command wm_class <<< "$1"
+
+BASE=org.gnome.settings-daemon.plugins.media-keys
+SCHEMA="$BASE.custom-keybinding"
+PATH_BASE=/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings
+
+slug=$(echo "$name" | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | tr -cd 'a-z0-9-')
+full_path="$PATH_BASE/vbmendes-dotfiles-$slug/"
+binding="${MODIFIER}${key}"
+
+if [[ -n "${wm_class:-}" ]]; then
+  fol_command="focus-or-launch --class '$wm_class' '$pattern' '$command'"
+else
+  fol_command="focus-or-launch '$pattern' '$command'"
+fi
+
+gsettings set "$SCHEMA:$full_path" name    "$name"
+gsettings set "$SCHEMA:$full_path" command "$fol_command"
+gsettings set "$SCHEMA:$full_path" binding "$binding"
+
+# Merge path into custom-keybindings list (skip if already present)
+current=$(gsettings get "$BASE" custom-keybindings)
+if [[ "$current" == "@as []" ]]; then
+  existing_paths=()
+else
+  mapfile -t existing_paths < <(echo "$current" | tr -d "[]'" | tr ',' '\n' | tr -d ' ' | grep -v '^$')
+fi
+
+for p in "${existing_paths[@]+"${existing_paths[@]}"}"; do
+  if [[ "$p" == "$full_path" ]]; then
+    echo "Registered: $binding → $name"
+    exit 0
+  fi
+done
+
+all_paths=("${existing_paths[@]+"${existing_paths[@]}"}" "$full_path")
+list=$(printf "'%s'," "${all_paths[@]}")
+list="[${list%,}]"
+gsettings set "$BASE" custom-keybindings "$list"
+
+echo "Registered: $binding → $name"
