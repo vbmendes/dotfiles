@@ -1,0 +1,22 @@
+#!/bin/bash
+# Removes all gTile keybindings configured by this tiling setup.
+
+GTILE_SCHEMA=org.gnome.shell.extensions.gtile
+PRESET_COUNT=15
+GTILE_SCHEMA_DIR="$HOME/.local/share/gnome-shell/extensions/gTile@vibou/schemas"
+export GSETTINGS_SCHEMA_DIR="${GTILE_SCHEMA_DIR}${GSETTINGS_SCHEMA_DIR:+:$GSETTINGS_SCHEMA_DIR}"
+
+if ! gsettings list-schemas 2>/dev/null | grep -q "^${GTILE_SCHEMA}$"; then
+  echo "gTile schema not found — nothing to remove."
+  exit 0
+fi
+
+for i in $(seq 1 "$PRESET_COUNT"); do
+  gsettings reset "$GTILE_SCHEMA" "preset-resize-${i}" 2>/dev/null || true
+done
+
+# Restore gTile action bindings we cleared
+gsettings reset "$GTILE_SCHEMA" action-contract-top    2>/dev/null || true
+gsettings reset "$GTILE_SCHEMA" action-contract-bottom 2>/dev/null || true
+
+echo "Removed ${PRESET_COUNT} gTile preset keybinding(s) and restored action bindings."
