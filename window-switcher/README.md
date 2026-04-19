@@ -61,6 +61,8 @@ Removes all shortcuts whose gsettings path starts with `vbmendes-dotfiles-`, lea
 ### `focus-or-launch`
 The runtime helper copied to `~/.local/bin`. Each shortcut calls this script, which finds existing windows matching the pattern (or WM_CLASS) and focuses them, cycling through multiple windows on repeated presses. If no window is found, it runs the launch command.
 
+When multiple windows exist, they are ordered by most recently used first (`_NET_WM_USER_TIME`). The order is snapshotted on the first press and reused as long as you keep pressing the shortcut within 2 seconds of the previous press. After 2 seconds of inactivity the snapshot resets, so the next press re-sorts by most recently used again.
+
 ```bash
 focus-or-launch [--class <WM_CLASS>] <PATTERN> <COMMAND>
 ```

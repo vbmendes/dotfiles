@@ -1,6 +1,8 @@
 #!/bin/bash
 # Focus an existing window matching PATTERN, or launch COMMAND.
-# If multiple windows match, cycles through them on each invocation.
+# If multiple windows match, cycles through them on each invocation,
+# ordered by most recently used first. The order is snapshotted on the
+# first press and reused while presses keep coming within 2 seconds.
 # Usage: focus-or-launch [--class <wm-class>] <window-pattern> <launch-command>
 
 USE_CLASS=false
@@ -45,19 +47,86 @@ if [[ "$WINDOW_COUNT" -eq 1 ]]; then
 fi
 
 STATE_FILE="/tmp/focus-cycle-$(echo "$STATE_KEY" | tr ' /' '__')"
-LAST=$(cat "$STATE_FILE" 2>/dev/null)
+NOW=$(date +%s)
 
-NEXT=""
-FOUND=false
-while IFS= read -r WIN; do
-  if $FOUND; then
-    NEXT="$WIN"
-    break
-  fi
-  [[ "$WIN" == "$LAST" ]] && FOUND=true
+# Build current window ID set for membership checks
+declare -A current_set
+while IFS= read -r id; do
+  current_set["$id"]=1
 done <<< "$WINDOWS"
 
-[[ -z "$NEXT" ]] && NEXT=$(echo "$WINDOWS" | head -1)
+# Determine whether the snapshot is still valid (last press within 2s)
+SNAPSHOT_VALID=false
+saved_last=""
+ordered=()
+
+if [[ -f "$STATE_FILE" ]]; then
+  { read -r saved_time; read -r saved_order_line; read -r saved_last; } < "$STATE_FILE"
+  if (( NOW - saved_time < 2 )); then
+    SNAPSHOT_VALID=true
+    # Rebuild ordered list: keep saved IDs that still exist, append new ones
+    for id in $saved_order_line; do
+      [[ -n "${current_set[$id]+_}" ]] && ordered+=("$id")
+    done
+    for id in "${!current_set[@]}"; do
+      already=false
+      for o in "${ordered[@]}"; do [[ "$o" == "$id" ]] && already=true && break; done
+      $already || ordered+=("$id")
+    done
+  fi
+fi
+
+if ! $SNAPSHOT_VALID; then
+  # Fresh cycle: sort windows by _NET_WM_USER_TIME descending
+  declare -A timestamps
+  while IFS= read -r id; do
+    ts=$(xprop -id "$id" _NET_WM_USER_TIME 2>/dev/null | grep -o '[0-9]*$')
+    timestamps["$id"]="${ts:-0}"
+  done <<< "$WINDOWS"
+
+  mapfile -t ordered < <(
+    for id in "${!timestamps[@]}"; do
+      printf '%s %s\n' "${timestamps[$id]}" "$id"
+    done | sort -rn | awk '{print $2}'
+  )
+  saved_last=""
+fi
+
+# Find next window in cycle (wrap around), skipping the active window.
+# Normalize ACTIVE to match the ID format used by the window list:
+#   xdotool search → decimal; wmctrl -l → hex (0x...)
+ACTIVE_DEC=$(xdotool getactivewindow 2>/dev/null || echo "")
+if [[ -n "$ACTIVE_DEC" ]]; then
+  if $USE_CLASS; then
+    ACTIVE="$ACTIVE_DEC"
+  else
+    ACTIVE=$(printf '0x%08x' "$ACTIVE_DEC")
+  fi
+else
+  ACTIVE=""
+fi
+NEXT=""
+FOUND=false
+for id in "${ordered[@]}"; do
+  if $FOUND; then
+    if [[ "$id" != "$ACTIVE" ]]; then
+      NEXT="$id"
+      break
+    fi
+  fi
+  [[ "$id" == "$saved_last" ]] && FOUND=true
+done
+if [[ -z "$NEXT" ]]; then
+  for id in "${ordered[@]}"; do
+    [[ "$id" != "$ACTIVE" ]] && NEXT="$id" && break
+  done
+fi
 
 focus_window "$NEXT"
-echo "$NEXT" > "$STATE_FILE"
+
+# Save state — writing NOW resets the 2s inactivity clock
+{
+  echo "$NOW"
+  echo "${ordered[*]}"
+  echo "$NEXT"
+} > "$STATE_FILE"
