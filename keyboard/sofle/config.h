@@ -1,0 +1,5 @@
+#pragma once
+
+#define COMBO_TERM 40
+#define COMBO_ONLY_FROM_LAYER 0
+#define SPLIT_TRANSACTION_IDS_USER USER_SYNC_MODS
