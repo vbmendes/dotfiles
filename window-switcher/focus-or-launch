@@ -3,6 +3,11 @@
 # If multiple windows match, cycles through them on each invocation,
 # ordered by most recently used first. The order is snapshotted on the
 # first press and reused while presses keep coming within 2 seconds.
+#
+# A global z-order list (/tmp/focus-order) tracks all focused windows
+# across apps. After every focus operation, restack-window enforces this
+# order so windows stay in the correct visual position when switching apps.
+#
 # Usage: focus-or-launch [--class <wm-class>] <window-pattern> <launch-command>
 
 USE_CLASS=false
@@ -32,17 +37,50 @@ fi
 
 WINDOW_COUNT=$(echo "$WINDOWS" | wc -l)
 
+# Activate a window by ID, converting hex (wmctrl) to decimal (xdotool) if needed.
+# --sync ensures GNOME has finished its own restacking before we apply corrections.
 focus_window() {
   local id="$1"
-  if $USE_CLASS; then
-    xdotool windowactivate --sync "$id"
+  local dec_id
+  if [[ "$id" =~ ^0x ]]; then
+    dec_id=$(printf '%d' "$id")
   else
-    wmctrl -ia "$id"
+    dec_id="$id"
   fi
+  xdotool windowactivate --sync "$dec_id"
+}
+
+# Move a window ID to the front (top) of the global z-order list.
+update_focus_order() {
+  local new_top="$1"
+  local order_file="/tmp/focus-order"
+  local current_ids=()
+
+  [[ -f "$order_file" ]] && read -r -a current_ids < "$order_file"
+
+  local filtered=()
+  for id in "${current_ids[@]}"; do
+    [[ "$id" != "$new_top" ]] && filtered+=("$id")
+  done
+  filtered+=("$new_top")
+
+  echo "${filtered[*]}" > "$order_file"
+}
+
+# Re-apply the global z-order using restack-window (relative restacking).
+apply_stacking() {
+  [[ -f /tmp/focus-order ]] || return
+  local order
+  read -r order < /tmp/focus-order
+  [[ -z "$order" ]] && return
+  # shellcheck disable=SC2086
+  restack-window $order 2>/dev/null || true
 }
 
 if [[ "$WINDOW_COUNT" -eq 1 ]]; then
   focus_window "$WINDOWS"
+  update_focus_order "$WINDOWS"
+  apply_stacking
   exit 0
 fi
 
@@ -124,9 +162,12 @@ fi
 
 focus_window "$NEXT"
 
-# Save state — writing NOW resets the 2s inactivity clock
+# Save cycle state — writing NOW resets the 2s inactivity clock
 {
   echo "$NOW"
   echo "${ordered[*]}"
   echo "$NEXT"
 } > "$STATE_FILE"
+
+update_focus_order "$NEXT"
+apply_stacking

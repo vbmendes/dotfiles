@@ -1,0 +1,48 @@
+#!/usr/bin/env python3
+"""
+Enforce a z-order on a list of windows using _NET_RESTACK_WINDOW.
+Usage: restack-window <id1> <id2> ... <idN>
+
+Windows are ordered from back (id1) to front (idN).
+Sends _NET_RESTACK_WINDOW for each consecutive pair so the WM places each
+window just above its predecessor without affecting other windows.
+IDs can be decimal or 0x-prefixed hex.
+"""
+import sys
+import Xlib.display
+import Xlib.X
+import Xlib.protocol.event
+
+
+def parse_wid(s):
+    return int(s, 16) if s.startswith('0x') else int(s)
+
+
+def main():
+    if len(sys.argv) < 3:
+        print(f"Usage: {sys.argv[0]} <id1> <id2> ... <idN>  (back to front)", file=sys.stderr)
+        sys.exit(1)
+
+    display = Xlib.display.Display()
+    root = display.screen().root
+    NET_RESTACK_WINDOW = display.intern_atom('_NET_RESTACK_WINDOW')
+
+    wids = [parse_wid(s) for s in sys.argv[1:]]
+
+    for lower_id, upper_id in zip(wids, wids[1:]):
+        window = display.create_resource_object('window', upper_id)
+        ev = Xlib.protocol.event.ClientMessage(
+            window=window,
+            client_type=NET_RESTACK_WINDOW,
+            data=(32, [2, lower_id, Xlib.X.Above, 0, 0])
+        )
+        root.send_event(
+            ev,
+            event_mask=Xlib.X.SubstructureRedirectMask | Xlib.X.SubstructureNotifyMask,
+        )
+
+    display.sync()
+
+
+if __name__ == '__main__':
+    main()

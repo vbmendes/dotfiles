@@ -19,22 +19,27 @@ SHORTCUTS=(
   "n|Open Obsidian|obsidian|obsidian"
   "e|Open Visual Studio Code|Visual Studio Code|code"
   "w|Open Whatsapp|Whatsapp|gtk-launch chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default|crx_hnpfjngllnobngcgfapefoaidbinmjnm"
+  "u|Open Cursor|Cursor|cursor"
 )
 # ───────────────────────────────────────────────────────────────────────────
 
 # Install dependencies
-for pkg in wmctrl xdotool; do
-  if ! command -v "$pkg" &>/dev/null; then
+for pkg in wmctrl xdotool python3-xlib; do
+  if ! dpkg -s "$pkg" &>/dev/null; then
     echo "Installing $pkg..."
     sudo apt install -y "$pkg"
   fi
 done
 
-# Install focus-or-launch
+# Install focus-or-launch and restack-window
 mkdir -p "$HOME/.local/bin"
 cp "$SCRIPT_DIR/focus-or-launch" "$HOME/.local/bin/focus-or-launch"
 chmod +x "$HOME/.local/bin/focus-or-launch"
 echo "Installed focus-or-launch to ~/.local/bin/"
+
+cp "$SCRIPT_DIR/restack-window" "$HOME/.local/bin/restack-window"
+chmod +x "$HOME/.local/bin/restack-window"
+echo "Installed restack-window to ~/.local/bin/"
 
 # Ensure ~/.local/bin is on PATH
 if [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
