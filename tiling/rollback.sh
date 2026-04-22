@@ -24,4 +24,8 @@ echo "Restored default Ctrl+Alt+Arrow workspace-switching bindings"
 gsettings reset "$MEDIA" terminal
 echo "Restored default Ctrl+Alt+T terminal binding"
 
+# Restore default show-desktop bindings
+gsettings reset "$WM" show-desktop
+echo "Restored default show-desktop bindings"
+
 echo "Rollback complete."
