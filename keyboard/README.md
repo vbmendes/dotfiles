@@ -1,67 +1,28 @@
-# Sofle v2 QMK Keymap
+# keyboard
 
-Custom QMK keymap for the JosefAdamcik Sofle v2 (`sofle/rev1`, USB ID `fc32:0287`).
+Everything related to keyboard hardware, firmware, and input remapping.
 
-## Setup
+## Contents
 
-Copies keymap files to `~/qmk_firmware` and compiles. Only changed files are copied.
+### [`qmk/`](qmk/README.md)
+Custom QMK firmware for the JosefAdamcik Sofle v2. Defines layers, combos, and encoders. Run `qmk/setup.sh` to copy keymap files and compile, then flash each half with `qmk flash`.
 
-```bash
-./keyboard/setup.sh
-```
+### [`xremap/`](xremap/README.md)
+System-wide key remapping daemon. Makes Super work as a macOS-style Cmd key, adds word/line navigation on Alt and Super arrows, and handles terminal-specific copy/paste. Run `xremap/setup.sh` to install and start the service.
 
-## Compile only
+### [`fix_cedilla.sh`](fix_cedilla.sh)
+Configures the XKB layout so `RALT+C` produces `ç`. Required once after a fresh install if you use the cedilla key on the SYMBOLS layer.
 
-```bash
-./keyboard/compile.sh
-```
+### [`setup_lock_shortcut.sh`](setup_lock_shortcut.sh)
+Binds `Ctrl+Super+Q` to lock the screen via GNOME's screensaver shortcut.
 
-## Flash
+## Setup order
 
-Flash each half separately with the same command. Right side first, then left.
-
-1. Plug in one half via USB
-2. Put it in bootloader mode by **double-tapping the reset button** on the PCB
-3. Run:
+On a fresh machine, run in this order:
 
 ```bash
-qmk flash -kb sofle/rev1 -km vbmendes
+keyboard/fix_cedilla.sh
+keyboard/setup_lock_shortcut.sh
+keyboard/xremap/setup.sh
+keyboard/qmk/setup.sh   # only if building firmware
 ```
-
-4. Repeat for the other half
-
-## Layers
-
-| # | Name     | Activation |
-|---|----------|------------|
-| 0 | QWERTY   | Base |
-| 1 | SYMBOLS  | Hold SYMB thumb |
-| 2 | NUMPAD   | `TO(NUMP)` from SYMBOLS/NAV outer column |
-| 3 | FUNCTION | Hold FUNC thumb (from SYMBOLS/NUMPAD) |
-| 4 | NAV      | Hold NAV thumb |
-
-**Top row:** `ESC F1–F10 C+G+Q` on QWERTY; `← 1–0 C+G+Q` on all other layers.
-
-**Encoder left:** VOL- / VOL+ (QWERTY), BRID / BRIU (FUNCTION)  
-**Encoder right:** PGUP / PGDN (QWERTY), MPRV / MNXT (FUNCTION), LEFT / RGHT (NAV)  
-**Encoder buttons:** left = MUTE, right = Hyper+F5
-
-## Combos
-
-Active on all layers except NAV. All key positions are QWERTY layer.
-
-| Combo | Output       |
-|-------|-------------|
-| D + F | Left Shift  |
-| X + C | Left Ctrl   |
-| C + V | Left GUI    |
-| Z + V | Left Alt    |
-| J + K | Right Shift |
-| . + , | Right Ctrl  |
-| M + , | Right GUI   |
-| M + / | Right Alt   |
-
-## Cedilla
-
-The cedilla key (on the SYMBOLS layer) sends `RALT+C`. On Linux, run
-`./scripts/fix_cedilla.sh` once to configure the XKB layout so this produces `ç`.

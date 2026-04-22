@@ -22,8 +22,8 @@ xremap runs as a persistent daemon with a uinput virtual device — keys are rem
 
 All keymaps use `exact_match: true`, so only the exact modifier combination triggers a remap. This means:
 
-- `Ctrl+Alt+Shift+Super+<key>` combos used by the [window-switcher](../window-switcher/README.md) pass through untouched.
-- `Ctrl+Alt+<key>` combos used by the [tiling](../tiling/README.md) setup pass through untouched — `Alt+Left` only fires when Alt is the sole modifier.
+- `Ctrl+Alt+Shift+Super+<key>` combos used by the [window-switcher](../../window-switcher/README.md) pass through untouched.
+- `Ctrl+Alt+<key>` combos used by the [tiling](../../tiling/README.md) setup pass through untouched — `Alt+Left` only fires when Alt is the sole modifier.
 
 ## Global shortcuts (all apps)
 
