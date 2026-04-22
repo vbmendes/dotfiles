@@ -114,17 +114,40 @@ eval "$(ssh-agent -s)" >/dev/null
 ssh-add "$key_path"
 success "Key added to SSH agent."
 
+# ── Configure ~/.ssh/config ───────────────────────────────────────────────────
+
+ssh_config="$HOME/.ssh/config"
+mkdir -p "$HOME/.ssh"
+chmod 700 "$HOME/.ssh"
+
+if grep -qF "$key_path" "$ssh_config" 2>/dev/null; then
+    info "Key already configured in ${ssh_config}"
+else
+    {
+        echo ""
+        echo "Host *"
+        echo "    AddKeysToAgent yes"
+        echo "    IdentityFile ${key_path}"
+    } >> "$ssh_config"
+    chmod 600 "$ssh_config"
+    success "Configured ${ssh_config} — passphrase will be stored by the system keyring after first use."
+fi
+
 # Persistence
 if [[ "$OSTYPE" == "linux"* ]]; then
     if confirm "Make SSH agent persistent across sessions (adds to ~/.bashrc)?"; then
         shell_rc="$HOME/.bashrc"
-        {
-            echo ""
-            echo '# SSH agent'
-            echo 'eval "$(ssh-agent -s)"'
-            echo "ssh-add ${key_path}"
-        } >> "$shell_rc"
-        success "Added SSH agent startup to ${shell_rc}"
+        if grep -qF "ssh-add ${key_path}" "$shell_rc" 2>/dev/null; then
+            info "SSH agent startup already present in ${shell_rc}"
+        else
+            {
+                echo ""
+                echo '# SSH agent'
+                echo 'eval "$(ssh-agent -s)"'
+                echo "ssh-add ${key_path}"
+            } >> "$shell_rc"
+            success "Added SSH agent startup to ${shell_rc}"
+        fi
     fi
 fi
 
