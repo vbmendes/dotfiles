@@ -118,7 +118,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | NUMP |      |      |   (  |   )  |   _  |-------.    ,-------|   ^  |   '  |   `  |   ç  | BSPC | NUMP |
  * |------+------+------+------+------+------|  MUTE |    |H(F5) |------+------+------+------+------+------|
- * | FUNC |   \  |C+G+SP|   [  |   ]  |   &  |-------|    |-------|circ' |quot' |grav' |Alt+0 |Alt+9 | FUNC |
+ * | FUNC |   \  |C+G+SP|   [  |   ]  |   &  |-------|    |-------|circ' |quot' |grav' |RA+0  |RA+9  | FUNC |
  * `---------------------------------------------/       /     \      \---------------------------------------------'
  *            | LCTL | FUNC |      |      | LGUI |/       /         \      \ | LGUI | NAV  |      |      | LALT |
  *            `------------------------------------------'           '------''----------------------------------'
@@ -127,7 +127,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TO(_QWERTY),   KC_1,    KC_2,                KC_3,    KC_4,    KC_5,                           KC_6,    KC_7,     KC_8,    KC_9,       KC_0,       LCTL(LGUI(KC_Q)),
     KC_TAB,        KC_EXLM, KC_AT,               KC_HASH, KC_DLR,  KC_PERC,                         KC_ASTR, _______,  _______, _______,    KC_EQL,     _______,
     TO(_NUMPAD),   _______, _______,             KC_LPRN, KC_RPRN, KC_UNDS,                         KC_CIRC, KC_QUOT,  KC_GRV,  CEDILLA,    KC_BSPC,    TO(_NUMPAD),
-    TO(_FUNCTION), KC_BSLS, LCTL(LGUI(KC_SPC)), KC_LBRC, KC_RBRC, KC_AMPR, KC_MUTE, HYPR(KC_F5),  CIRCSPC, QUOTSPC,  GRAVSPC, LALT(KC_0), LALT(KC_9), TO(_FUNCTION),
+    TO(_FUNCTION), KC_BSLS, LCTL(LGUI(KC_SPC)), KC_LBRC, KC_RBRC, KC_AMPR, KC_MUTE, HYPR(KC_F5),  CIRCSPC, QUOTSPC,  GRAVSPC, RALT(KC_0), RALT(KC_9), TO(_FUNCTION),
              KC_LCTL, MO(_FUNCTION), _______, _______, KC_LGUI,                                     KC_LGUI, MO(_NAV), _______, _______,    KC_LALT
 ),
 
@@ -160,7 +160,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | TAB  |  F1  |  F2  |  F3  |  F4  |  F5  |                    |  F6  |  F7  |  F8  |  F9  | F10  | BRIU |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |CpWrd |C+UP  | CAPS |SG+3  |SG+4  |  F11 |-------.    ,-------|  F12 | PREV | PLAY | NEXT | STOP | BRID |
+ * |CpWrd |C+UP  | CAPS |H(F3) |H(F4) |  F11 |-------.    ,-------|  F12 | PREV | PLAY | NEXT | STOP | BRID |
  * |------+------+------+------+------+------|  MUTE |    |H(F5) |------+------+------+------+------+------|
  * | BOOT |      |      |      |      |      |-------|    |-------|      | MUTE |VOL-  |VOL+  | LOCK |H+GRV |
  * `---------------------------------------------/       /     \      \---------------------------------------------'
@@ -170,7 +170,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_FUNCTION] = LAYOUT(
     TO(_QWERTY),   KC_1,        KC_2,    KC_3,                KC_4,                KC_5,                           KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    LCTL(LGUI(KC_Q)),
     KC_TAB,        KC_F1,       KC_F2,   KC_F3,               KC_F4,               KC_F5,                          KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_BRIU,
-    CW_TOGG,       LCTL(KC_UP), KC_CAPS, LSFT(LGUI(KC_3)),   LSFT(LGUI(KC_4)),   KC_F11,                          KC_F12,  KC_MPRV, KC_MPLY, KC_MNXT, KC_MSTP, KC_BRID,
+    CW_TOGG,       LCTL(KC_UP), KC_CAPS, HYPR(KC_F3),         HYPR(KC_F4),         KC_F11,                          KC_F12,  KC_MPRV, KC_MPLY, KC_MNXT, KC_MSTP, KC_BRID,
     QK_BOOT,       KC_NO,       KC_NO,   KC_NO,               KC_NO,               KC_NO,   KC_MUTE, HYPR(KC_F5),  _______, KC_MUTE, KC_VOLD, KC_VOLU, LOCK_SCR, HYPR(KC_GRV),
              KC_LCTL, _______, _______, _______, KC_LGUI,                                                           KC_LGUI, _______, _______, _______, KC_LALT
 ),

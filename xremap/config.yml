@@ -1,0 +1,41 @@
+keymap:
+  # Terminals: Ctrl+C is SIGINT, so copy/paste use Ctrl+Shift+C/V
+  - name: Terminal copy/paste
+    exact_match: true
+    application:
+      only:
+        - dev.warp.Warp
+        - org.gnome.Terminal
+        - kitty
+        - Alacritty
+        - Terminator
+        - xterm
+    remap:
+      Super-c: Ctrl-Shift-c
+      Super-v: Ctrl-Shift-v
+      Super-Shift-v: Ctrl-Shift-v
+      Super-t: Ctrl-Shift-t
+
+  # All other apps
+  - name: Global shortcuts
+    exact_match: true
+    remap:
+      Super-c: Ctrl-c
+      Super-v: Ctrl-v
+      Super-Shift-v: Ctrl-Shift-v
+      Super-x: Ctrl-x
+      Super-a: Ctrl-a
+      Super-z: Ctrl-z
+      Super-b: Ctrl-b
+      Super-g: Ctrl-g
+      Super-f: Ctrl-f
+      Super-w: Ctrl-w
+      Super-r: Ctrl-r
+      Super-q: Ctrl-q
+      Super-Shift-t: Ctrl-Shift-t
+      Super-Left: Home
+      Super-Right: End
+      Super-BackSpace: Ctrl-u
+      Alt-Left: Ctrl-Left
+      Alt-Right: Ctrl-Right
+      Alt-BackSpace: Ctrl-BackSpace
