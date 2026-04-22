@@ -20,6 +20,8 @@ SHORTCUTS=(
   "e|Open Visual Studio Code|Visual Studio Code|code"
   "w|Open Whatsapp|Whatsapp|gtk-launch chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default|crx_hnpfjngllnobngcgfapefoaidbinmjnm"
   "u|Open Cursor|Cursor|cursor"
+  "v|Open Google Meet|Google Meet|gtk-launch chrome-kjgfgldnnfoeklkmfkjfagphfepbbdan-Profile_2|crx_kjgfgldnnfoeklkmfkjfagphfepbbdan"
+  "f|Open Files|Files|nautilus|org.gnome.Nautilus"
 )
 # ───────────────────────────────────────────────────────────────────────────
 
