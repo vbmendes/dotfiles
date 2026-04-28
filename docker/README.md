@@ -12,9 +12,12 @@ bash docker/setup.sh
 
 ### macOS
 
-Installs **Docker Desktop** via Homebrew (includes Docker Engine, Docker CLI, and Docker Compose). After installation, launch Docker Desktop from your Applications folder to start the daemon.
-
 Requires [Homebrew](https://brew.sh).
+
+1. Removes **Docker Desktop** and all its leftover files if present (no subscription required)
+2. Installs the **Docker CLI** (`docker` formula) and **`docker-credential-helper`** (`docker-credential-osxkeychain`)
+3. Installs and starts **[Colima](https://github.com/abiosoft/colima)** as the Docker runtime
+4. Installs **Docker Compose** and wires it as a CLI plugin
 
 ### Linux (Ubuntu / Debian)
 
