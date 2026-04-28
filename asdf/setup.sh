@@ -119,30 +119,18 @@ else
     case "$shell" in
       bash)
         RC="$HOME/.bashrc"
-        if [[ "$INSTALL_METHOD" == "brew" ]]; then
-          LINE='export PATH="$(brew --prefix asdf)/bin:$PATH"'
-        else
-          LINE='export ASDF_DATA_DIR="$HOME/.asdf"; export PATH="$ASDF_DATA_DIR/shims:$PATH"'
-        fi
+        LINE='export ASDF_DATA_DIR="$HOME/.asdf"; export PATH="$ASDF_DATA_DIR/shims:$PATH"'
         echo -n "bash: "; _configure_rc "$RC" "$LINE"
         ;;
       zsh)
         RC="$HOME/.zshrc"
-        if [[ "$INSTALL_METHOD" == "brew" ]]; then
-          LINE='export PATH="$(brew --prefix asdf)/bin:$PATH"'
-        else
-          LINE='export ASDF_DATA_DIR="$HOME/.asdf"; export PATH="$ASDF_DATA_DIR/shims:$PATH"'
-        fi
+        LINE='export ASDF_DATA_DIR="$HOME/.asdf"; export PATH="$ASDF_DATA_DIR/shims:$PATH"'
         echo -n "zsh: "; _configure_rc "$RC" "$LINE"
         ;;
       fish)
         FISH_CONF="$HOME/.config/fish/conf.d/asdf.fish"
         mkdir -p "$(dirname "$FISH_CONF")"
-        if [[ "$INSTALL_METHOD" == "brew" ]]; then
-          LINE='fish_add_path (brew --prefix asdf)/bin'
-        else
-          LINE='set -gx ASDF_DATA_DIR $HOME/.asdf; fish_add_path $ASDF_DATA_DIR/bin $ASDF_DATA_DIR/shims'
-        fi
+        LINE='set -gx ASDF_DATA_DIR $HOME/.asdf; fish_add_path $ASDF_DATA_DIR/shims'
         echo -n "fish: "; _configure_rc "$FISH_CONF" "$LINE"
         ;;
     esac
