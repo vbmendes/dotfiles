@@ -124,8 +124,24 @@ else
         ;;
       zsh)
         RC="$HOME/.zshrc"
-        LINE='export ASDF_DATA_DIR="$HOME/.asdf"; export PATH="$ASDF_DATA_DIR/shims:$PATH"'
-        echo -n "zsh: "; _configure_rc "$RC" "$LINE"
+        if [[ -d "$HOME/.oh-my-zsh" ]]; then
+          if grep -q '\basdf\b' "$RC" 2>/dev/null; then
+            echo "zsh: asdf already in oh-my-zsh plugins"
+          else
+            python3 -c "
+import re
+with open('$RC') as f:
+    content = f.read()
+content = re.sub(r'(plugins=\([^)]*)\)', r'\1 asdf)', content)
+with open('$RC', 'w') as f:
+    f.write(content)
+"
+            echo "zsh: added asdf to oh-my-zsh plugins"
+          fi
+        else
+          LINE='export ASDF_DATA_DIR="$HOME/.asdf"; export PATH="$ASDF_DATA_DIR/shims:$PATH"'
+          echo -n "zsh: "; _configure_rc "$RC" "$LINE"
+        fi
         ;;
       fish)
         FISH_CONF="$HOME/.config/fish/conf.d/asdf.fish"
@@ -148,8 +164,11 @@ for entry in "${PLUGINS[@]}"; do
     echo "Adding plugin: ${name}"
     asdf plugin add "$name" "$url"
   fi
+  echo "Installing latest ${name}..."
+  asdf install "$name" latest
+  asdf set --home "$name" latest
+  echo "${name} global version set to: $(asdf current "$name" | awk '{print $2}')"
 done
 
 echo ""
 echo "Done. Plugins: $(asdf plugin list | tr '\n' ' ')"
-echo "Run 'asdf install <plugin> latest' to install a version."
