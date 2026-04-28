@@ -1,0 +1,86 @@
+#!/bin/bash
+# Add a single shortcut to hyper-apps.lua without re-running setup.sh.
+# Usage: add-shortcut <KEY> <AppName> [<WindowCycleId>]
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+APPS_FILE="$SCRIPT_DIR/hyper-apps.lua"
+
+usage() {
+  cat <<EOF
+Usage:
+  $(basename "$0") <KEY> <AppName> [<WindowCycleId>]
+
+Arguments:
+  KEY           Single letter to bind (combined with Shift+Ctrl+Alt+Cmd)
+  AppName       Exact app name as shown in Activity Monitor or bundle ID
+  WindowCycleId (optional) Name Hammerspoon uses for the app's windows when it
+                differs from AppName (e.g. 'Code' for Visual Studio Code)
+
+Find AppName:    open the app, then run in Hammerspoon console:
+                 hs.application.frontmostApplication():name()
+Find bundle ID:  mdls -name kMDItemCFBundleIdentifier /Applications/App.app
+
+Examples:
+  $(basename "$0") g 'Google Chrome'
+  $(basename "$0") e 'Visual Studio Code' Code
+EOF
+  exit 1
+}
+
+[[ $# -lt 2 ]] && usage
+
+KEY="$1"
+APP_NAME="$2"
+WINDOW_CYCLE_ID="${3:-}"
+
+# ── Validate key is a single letter ──────────────────────────────────────────
+
+if [[ ! "$KEY" =~ ^[a-zA-Z0-9]$ ]]; then
+  echo "Error: KEY must be a single alphanumeric character." >&2
+  exit 1
+fi
+
+# ── Check for duplicate key ───────────────────────────────────────────────────
+
+KEY_LOWER="${KEY,,}"
+if grep -qE "^\s*\{ '$KEY_LOWER'," "$APPS_FILE"; then
+  existing=$(grep -E "^\s*\{ '$KEY_LOWER'," "$APPS_FILE" | head -1 | xargs)
+  echo "Key '$KEY_LOWER' is already bound: $existing"
+  read -r -p "Replace it with '$APP_NAME'? [y/N] " confirm
+  [[ "${confirm,,}" == "y" ]] || exit 0
+
+  # Remove existing line
+  tmpfile=$(mktemp)
+  grep -vE "^\s*\{ '$KEY_LOWER'," "$APPS_FILE" > "$tmpfile"
+  mv "$tmpfile" "$APPS_FILE"
+fi
+
+# ── Build new entry ───────────────────────────────────────────────────────────
+
+if [[ -n "$WINDOW_CYCLE_ID" ]]; then
+  new_entry="  { '$KEY_LOWER', '$APP_NAME', '$WINDOW_CYCLE_ID' },"
+else
+  new_entry="  { '$KEY_LOWER', '$APP_NAME' },"
+fi
+
+# ── Insert before the closing } of the return table ──────────────────────────
+
+tmpfile=$(mktemp)
+awk -v entry="$new_entry" '
+  /^}/ { print entry }
+  { print }
+' "$APPS_FILE" > "$tmpfile"
+mv "$tmpfile" "$APPS_FILE"
+
+echo "Added: $new_entry"
+
+# ── Reload Hammerspoon ────────────────────────────────────────────────────────
+
+if pgrep -x Hammerspoon > /dev/null; then
+  if command -v hs &>/dev/null; then
+    hs -c "hs.reload()" 2>/dev/null && echo "Hammerspoon reloaded." || true
+  else
+    echo "Reload Hammerspoon manually (Ctrl+\`) to activate the new shortcut."
+  fi
+fi
