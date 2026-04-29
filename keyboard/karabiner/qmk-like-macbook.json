@@ -29,6 +29,16 @@
                 "value": 0
               }
             }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
           ]
         },
         {
@@ -64,7 +74,17 @@
           "parameters": {
             "basic.to_if_alone_timeout_milliseconds": 200,
             "basic.to_if_held_down_threshold_milliseconds": 200
-          }
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
         },
         {
           "type": "basic",
@@ -86,6 +106,14 @@
               "type": "variable_if",
               "name": "nav_layer",
               "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
             }
           ]
         },
@@ -109,6 +137,14 @@
               "type": "variable_if",
               "name": "nav_layer",
               "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
             }
           ]
         },
@@ -132,6 +168,14 @@
               "type": "variable_if",
               "name": "nav_layer",
               "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
             }
           ]
         },
@@ -155,6 +199,14 @@
               "type": "variable_if",
               "name": "nav_layer",
               "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
             }
           ]
         },
@@ -178,6 +230,14 @@
               "type": "variable_if",
               "name": "nav_layer",
               "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
             }
           ]
         },
@@ -201,10 +261,17 @@
               "type": "variable_if",
               "name": "nav_layer",
               "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
             }
           ]
         },
-
         {
           "type": "basic",
           "from": {
@@ -225,6 +292,14 @@
               "type": "variable_if",
               "name": "nav_layer",
               "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
             }
           ]
         },
@@ -248,6 +323,14 @@
               "type": "variable_if",
               "name": "nav_layer",
               "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
             }
           ]
         },
@@ -271,6 +354,14 @@
               "type": "variable_if",
               "name": "nav_layer",
               "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
             }
           ]
         },
@@ -294,10 +385,17 @@
               "type": "variable_if",
               "name": "nav_layer",
               "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
             }
           ]
         },
-
         {
           "type": "basic",
           "from": {
@@ -318,6 +416,14 @@
               "type": "variable_if",
               "name": "nav_layer",
               "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
             }
           ]
         },
@@ -341,6 +447,14 @@
               "type": "variable_if",
               "name": "nav_layer",
               "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
             }
           ]
         },
@@ -364,6 +478,14 @@
               "type": "variable_if",
               "name": "nav_layer",
               "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
             }
           ]
         },
@@ -387,10 +509,17 @@
               "type": "variable_if",
               "name": "nav_layer",
               "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
             }
           ]
         },
-
         {
           "type": "basic",
           "from": {
@@ -411,6 +540,14 @@
               "type": "variable_if",
               "name": "nav_layer",
               "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
             }
           ]
         },
@@ -434,6 +571,14 @@
               "type": "variable_if",
               "name": "nav_layer",
               "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
             }
           ]
         },
@@ -457,6 +602,14 @@
               "type": "variable_if",
               "name": "nav_layer",
               "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
             }
           ]
         },
@@ -480,6 +633,14 @@
               "type": "variable_if",
               "name": "nav_layer",
               "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
             }
           ]
         },
@@ -503,10 +664,17 @@
               "type": "variable_if",
               "name": "nav_layer",
               "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
             }
           ]
         },
-
         {
           "type": "basic",
           "from": {
@@ -527,6 +695,14 @@
               "type": "variable_if",
               "name": "nav_layer",
               "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
             }
           ]
         },
@@ -550,6 +726,14 @@
               "type": "variable_if",
               "name": "nav_layer",
               "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
             }
           ]
         },
@@ -573,6 +757,14 @@
               "type": "variable_if",
               "name": "nav_layer",
               "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
             }
           ]
         },
@@ -596,17 +788,242 @@
               "type": "variable_if",
               "name": "nav_layer",
               "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
             }
           ]
         },
-
-        { "type": "basic", "from": { "key_code": "p",      "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "equal_sign" }],                                              "conditions": [{ "type": "variable_if", "name": "nav_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "b",      "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "left_shift", "modifiers": ["left_control", "left_option"] }], "conditions": [{ "type": "variable_if", "name": "nav_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "n",      "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "left_shift", "modifiers": ["left_control", "left_option"] }], "conditions": [{ "type": "variable_if", "name": "nav_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "m",      "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "left_command" }],                                             "conditions": [{ "type": "variable_if", "name": "nav_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "comma",  "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "left_option" }],                                              "conditions": [{ "type": "variable_if", "name": "nav_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "period", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "left_control" }],                                             "conditions": [{ "type": "variable_if", "name": "nav_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "slash",  "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "left_shift" }],                                               "conditions": [{ "type": "variable_if", "name": "nav_layer", "value": 1 }] }
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "equal_sign"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "nav_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift",
+              "modifiers": [
+                "left_control",
+                "left_option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "nav_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift",
+              "modifiers": [
+                "left_control",
+                "left_option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "nav_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "nav_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "comma",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_option"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "nav_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "period",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "nav_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "nav_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        }
       ]
     },
     {
@@ -637,38 +1054,923 @@
                 "value": 0
               }
             }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
           ]
         },
-
-        { "type": "basic", "from": { "key_code": "q", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "1", "modifiers": ["left_shift"] }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "w", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "2", "modifiers": ["left_shift"] }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "e", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "3", "modifiers": ["left_shift"] }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "r", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "4", "modifiers": ["left_shift"] }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "t", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "5", "modifiers": ["left_shift"] }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "y", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "8", "modifiers": ["left_shift"] }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "p", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "equal_sign" }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] },
-
-        { "type": "basic", "from": { "key_code": "d", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "9", "modifiers": ["left_shift"] }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "f", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "0", "modifiers": ["left_shift"] }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "g", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "hyphen", "modifiers": ["left_shift"] }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "h", "modifiers": { "mandatory": ["left_shift"], "optional": ["any"] } }, "to": [{ "key_code": "hyphen", "modifiers": [] }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "h", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "6", "modifiers": ["left_shift"] }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "j", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "quote" }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "k", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "grave_accent_and_tilde" }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "l", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "c", "modifiers": ["right_option"] }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "semicolon", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "delete_or_backspace" }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] },
-
-        { "type": "basic", "from": { "key_code": "z", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "backslash" }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "x", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "spacebar", "modifiers": ["left_control", "left_command"] }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "c", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "open_bracket" }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "v", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "close_bracket" }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "b", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "7", "modifiers": ["left_shift"] }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "n", "modifiers": { "mandatory": ["left_shift"], "optional": ["any"] } }, "to": [{ "key_code": "equal_sign", "modifiers": ["left_shift"] }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "n", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "6", "modifiers": ["left_shift"] }, { "key_code": "spacebar" }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "m", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "quote" }, { "key_code": "spacebar" }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "comma", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "grave_accent_and_tilde" }, { "key_code": "spacebar" }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "period", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "0", "modifiers": ["right_option"] }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "slash", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "9", "modifiers": ["right_option"] }], "conditions": [{ "type": "variable_if", "name": "symbols_layer", "value": 1 }] }
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "1",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "2",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "3",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "r",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "4",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "5",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "y",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "8",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "equal_sign"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "9",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "0",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": []
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "6",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "quote"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "c",
+              "modifiers": [
+                "right_option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "z",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "backslash"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "x",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "left_control",
+                "left_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "c",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "7",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "equal_sign",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "6",
+              "modifiers": [
+                "left_shift"
+              ]
+            },
+            {
+              "key_code": "spacebar"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "quote"
+            },
+            {
+              "key_code": "spacebar"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "comma",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde"
+            },
+            {
+              "key_code": "spacebar"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "period",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "0",
+              "modifiers": [
+                "right_option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "9",
+              "modifiers": [
+                "right_option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "symbols_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        }
       ]
     },
     {
@@ -699,41 +2001,991 @@
                 "value": 0
               }
             }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
           ]
         },
-
-        { "type": "basic", "from": { "key_code": "q", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "1", "modifiers": ["left_shift"] }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "w", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "2", "modifiers": ["left_shift"] }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "e", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "3", "modifiers": ["left_shift"] }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "r", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "4", "modifiers": ["left_shift"] }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "t", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "5", "modifiers": ["left_shift"] }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "y", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "8", "modifiers": ["left_shift"] }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "u", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "7" }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "i", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "8" }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "o", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "9" }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "p", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "equal_sign" }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-
-        { "type": "basic", "from": { "key_code": "a", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "open_bracket", "modifiers": ["left_shift"] }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "s", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "close_bracket", "modifiers": ["left_shift"] }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "d", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "9", "modifiers": ["left_shift"] }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "f", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "0", "modifiers": ["left_shift"] }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "g", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "hyphen", "modifiers": ["left_shift"] }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "h", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "hyphen" }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "j", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "4" }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "k", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "5" }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "l", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "6" }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "semicolon", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "delete_or_backspace" }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-
-        { "type": "basic", "from": { "key_code": "z", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "backslash" }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "x", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "spacebar", "modifiers": ["left_control", "left_command"] }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "c", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "open_bracket" }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "v", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "close_bracket" }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "b", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "7", "modifiers": ["left_shift"] }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "n", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "equal_sign", "modifiers": ["left_shift"] }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "m", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "1" }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "comma", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "2" }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "period", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "3" }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] },
-        { "type": "basic", "from": { "key_code": "slash", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "period" }], "conditions": [{ "type": "variable_if", "name": "numpad_layer", "value": 1 }] }
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "1",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "2",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "3",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "r",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "4",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "5",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "y",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "8",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "7"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "8"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "9"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "equal_sign"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "9",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "0",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "hyphen"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "4"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "5"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "6"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "z",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "backslash"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "x",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "left_control",
+                "left_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "c",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "7",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "equal_sign",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "1"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "comma",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "2"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "period",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "3"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "period"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "numpad_layer",
+              "value": 1
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ]
+        }
       ]
     },
     {
@@ -742,82 +2994,330 @@
         {
           "type": "basic",
           "from": {
-            "simultaneous": [{ "key_code": "d" }, { "key_code": "f" }],
-            "simultaneous_options": { "key_down_order": "insensitive", "key_up_order": "insensitive", "key_up_when": "all" }
+            "simultaneous": [
+              {
+                "key_code": "d"
+              },
+              {
+                "key_code": "f"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "insensitive",
+              "key_up_order": "insensitive",
+              "key_up_when": "all"
+            }
           },
-          "to": [{ "key_code": "left_shift" }],
-          "conditions": [{ "type": "variable_if", "name": "nav_layer", "value": 0 }],
-          "parameters": { "basic.simultaneous_threshold_milliseconds": 50 }
+          "to": [
+            {
+              "key_code": "left_shift"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "nav_layer",
+              "value": 0
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 50
+          }
         },
         {
           "type": "basic",
           "from": {
-            "simultaneous": [{ "key_code": "x" }, { "key_code": "c" }],
-            "simultaneous_options": { "key_down_order": "insensitive", "key_up_order": "insensitive", "key_up_when": "all" }
+            "simultaneous": [
+              {
+                "key_code": "x"
+              },
+              {
+                "key_code": "c"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "insensitive",
+              "key_up_order": "insensitive",
+              "key_up_when": "all"
+            }
           },
-          "to": [{ "key_code": "left_control" }],
-          "conditions": [{ "type": "variable_if", "name": "nav_layer", "value": 0 }],
-          "parameters": { "basic.simultaneous_threshold_milliseconds": 50 }
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "nav_layer",
+              "value": 0
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 50
+          }
         },
         {
           "type": "basic",
           "from": {
-            "simultaneous": [{ "key_code": "c" }, { "key_code": "v" }],
-            "simultaneous_options": { "key_down_order": "insensitive", "key_up_order": "insensitive", "key_up_when": "all" }
+            "simultaneous": [
+              {
+                "key_code": "c"
+              },
+              {
+                "key_code": "v"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "insensitive",
+              "key_up_order": "insensitive",
+              "key_up_when": "all"
+            }
           },
-          "to": [{ "key_code": "left_command" }],
-          "conditions": [{ "type": "variable_if", "name": "nav_layer", "value": 0 }],
-          "parameters": { "basic.simultaneous_threshold_milliseconds": 50 }
+          "to": [
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "nav_layer",
+              "value": 0
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 50
+          }
         },
         {
           "type": "basic",
           "from": {
-            "simultaneous": [{ "key_code": "z" }, { "key_code": "v" }],
-            "simultaneous_options": { "key_down_order": "insensitive", "key_up_order": "insensitive", "key_up_when": "all" }
+            "simultaneous": [
+              {
+                "key_code": "z"
+              },
+              {
+                "key_code": "v"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "insensitive",
+              "key_up_order": "insensitive",
+              "key_up_when": "all"
+            }
           },
-          "to": [{ "key_code": "left_option" }],
-          "conditions": [{ "type": "variable_if", "name": "nav_layer", "value": 0 }],
-          "parameters": { "basic.simultaneous_threshold_milliseconds": 50 }
+          "to": [
+            {
+              "key_code": "left_option"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "nav_layer",
+              "value": 0
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 50
+          }
         },
         {
           "type": "basic",
           "from": {
-            "simultaneous": [{ "key_code": "j" }, { "key_code": "k" }],
-            "simultaneous_options": { "key_down_order": "insensitive", "key_up_order": "insensitive", "key_up_when": "all" }
+            "simultaneous": [
+              {
+                "key_code": "j"
+              },
+              {
+                "key_code": "k"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "insensitive",
+              "key_up_order": "insensitive",
+              "key_up_when": "all"
+            }
           },
-          "to": [{ "key_code": "right_shift" }],
-          "conditions": [{ "type": "variable_if", "name": "nav_layer", "value": 0 }],
-          "parameters": { "basic.simultaneous_threshold_milliseconds": 50 }
+          "to": [
+            {
+              "key_code": "right_shift"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "nav_layer",
+              "value": 0
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 50
+          }
         },
         {
           "type": "basic",
           "from": {
-            "simultaneous": [{ "key_code": "period" }, { "key_code": "comma" }],
-            "simultaneous_options": { "key_down_order": "insensitive", "key_up_order": "insensitive", "key_up_when": "all" }
+            "simultaneous": [
+              {
+                "key_code": "period"
+              },
+              {
+                "key_code": "comma"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "insensitive",
+              "key_up_order": "insensitive",
+              "key_up_when": "all"
+            }
           },
-          "to": [{ "key_code": "right_control" }],
-          "conditions": [{ "type": "variable_if", "name": "nav_layer", "value": 0 }],
-          "parameters": { "basic.simultaneous_threshold_milliseconds": 50 }
+          "to": [
+            {
+              "key_code": "right_control"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "nav_layer",
+              "value": 0
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 50
+          }
         },
         {
           "type": "basic",
           "from": {
-            "simultaneous": [{ "key_code": "m" }, { "key_code": "comma" }],
-            "simultaneous_options": { "key_down_order": "insensitive", "key_up_order": "insensitive", "key_up_when": "all" }
+            "simultaneous": [
+              {
+                "key_code": "m"
+              },
+              {
+                "key_code": "comma"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "insensitive",
+              "key_up_order": "insensitive",
+              "key_up_when": "all"
+            }
           },
-          "to": [{ "key_code": "right_command" }],
-          "conditions": [{ "type": "variable_if", "name": "nav_layer", "value": 0 }],
-          "parameters": { "basic.simultaneous_threshold_milliseconds": 50 }
+          "to": [
+            {
+              "key_code": "right_command"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "nav_layer",
+              "value": 0
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 50
+          }
         },
         {
           "type": "basic",
           "from": {
-            "simultaneous": [{ "key_code": "m" }, { "key_code": "slash" }],
-            "simultaneous_options": { "key_down_order": "insensitive", "key_up_order": "insensitive", "key_up_when": "all" }
+            "simultaneous": [
+              {
+                "key_code": "m"
+              },
+              {
+                "key_code": "slash"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "insensitive",
+              "key_up_order": "insensitive",
+              "key_up_when": "all"
+            }
           },
-          "to": [{ "key_code": "right_option" }],
-          "conditions": [{ "type": "variable_if", "name": "nav_layer", "value": 0 }],
-          "parameters": { "basic.simultaneous_threshold_milliseconds": 50 }
+          "to": [
+            {
+              "key_code": "right_option"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "nav_layer",
+              "value": 0
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
+            }
+          ],
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 50
+          }
         }
       ]
     }

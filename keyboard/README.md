@@ -27,7 +27,7 @@ If `jq` is not available, install the file manually and enable via **Karabiner-E
 | Globe (fn) | Left Control |
 | \\ | Globe (fn) |
 
-These are applied as device-level simple modifications (all keyboards) and **replace** any existing `is_keyboard: true` device entry.
+These are applied as device-level simple modifications (built-in keyboard only) and **replace** any existing `is_built_in_keyboard: true` device entry.
 
 ## Layers / Mappings
 

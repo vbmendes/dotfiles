@@ -41,9 +41,9 @@ cp "$KARABINER_CONFIG" "$BACKUP"
 # Simple modifications — replaces the is_keyboard:true device entry, preserving other device entries
 jq '
     .profiles[0].devices = (
-        ((.profiles[0].devices // []) | map(select(.identifiers.is_keyboard != true))) +
+        ((.profiles[0].devices // []) | map(select(.identifiers.is_built_in_keyboard != true))) +
         [{
-            "identifiers": {"is_keyboard": true},
+            "identifiers": {"is_built_in_keyboard": true},
             "simple_modifications": [
                 {"from": {"key_code": "left_shift"},                             "to": [{"key_code": "left_command"}]},
                 {"from": {"key_code": "right_shift"},                            "to": [{"key_code": "left_command"}]},
