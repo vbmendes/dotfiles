@@ -20,8 +20,8 @@ return {
   { 'm', 'Spotify' },
   { 'n', 'Obsidian' },
   { 'p', '1Password' },
-  { 't', 'Terminal' },
   { 'u', 'Cursor' },
   { 'v', 'Google Meet' },
   { 'w', 'WhatsApp' },
+  { 't', 'Warp' },
 }

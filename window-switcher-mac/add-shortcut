@@ -43,12 +43,13 @@ fi
 
 # ── Check for duplicate key ───────────────────────────────────────────────────
 
-KEY_LOWER="${KEY,,}"
+KEY_LOWER="$(echo "$KEY" | tr '[:upper:]' '[:lower:]')"
 if grep -qE "^\s*\{ '$KEY_LOWER'," "$APPS_FILE"; then
   existing=$(grep -E "^\s*\{ '$KEY_LOWER'," "$APPS_FILE" | head -1 | xargs)
   echo "Key '$KEY_LOWER' is already bound: $existing"
   read -r -p "Replace it with '$APP_NAME'? [y/N] " confirm
-  [[ "${confirm,,}" == "y" ]] || exit 0
+  confirm_lower="$(echo "$confirm" | tr '[:upper:]' '[:lower:]')"
+  [[ "$confirm_lower" == "y" ]] || exit 0
 
   # Remove existing line
   tmpfile=$(mktemp)
