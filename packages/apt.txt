@@ -1,0 +1,40 @@
+# CLI essentials
+curl
+vim
+direnv
+git
+jq
+npm
+libpq-dev
+postgresql-client
+tree
+uidmap
+unzip
+xclip
+wget
+
+# Build tools
+build-essential
+libbz2-dev
+libffi-dev
+liblzma-dev
+libncurses-dev
+libreadline-dev
+libsqlite3-dev
+libssl-dev
+tk-dev
+
+# System utilities
+apt-transport-https
+ca-certificates
+gnupg
+htop
+lsb-release
+software-properties-common
+
+# Desktop
+flameshot
+
+# Project dependencies
+bison
+flex
