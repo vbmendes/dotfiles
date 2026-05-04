@@ -160,7 +160,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | TAB  |  F1  |  F2  |  F3  |  F4  |  F5  |                    |  F6  |  F7  |  F8  |  F9  | F10  | BRIU |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |CpWrd |C+UP  | CAPS |H(F3) |H(F4) |  F11 |-------.    ,-------|  F12 | PREV | PLAY | NEXT | STOP | BRID |
+ * |CpWrd |C+UP  | CAPS |  GS3 |  GS4 |  F11 |-------.    ,-------|  F12 | PREV | PLAY | NEXT | STOP | BRID |
  * |------+------+------+------+------+------|  MUTE |    |H(F5) |------+------+------+------+------+------|
  * | BOOT |      |      |      |      |      |-------|    |-------|      | MUTE |VOL-  |VOL+  | LOCK |H+GRV |
  * `---------------------------------------------/       /     \      \---------------------------------------------'
@@ -168,11 +168,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *            `------------------------------------------'           '------''----------------------------------'
  */
 [_FUNCTION] = LAYOUT(
-    TO(_QWERTY),   KC_1,        KC_2,    KC_3,                KC_4,                KC_5,                           KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    LCTL(LGUI(KC_Q)),
-    KC_TAB,        KC_F1,       KC_F2,   KC_F3,               KC_F4,               KC_F5,                          KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_BRIU,
-    CW_TOGG,       LCTL(KC_UP), KC_CAPS, HYPR(KC_F3),         HYPR(KC_F4),         KC_F11,                          KC_F12,  KC_MPRV, KC_MPLY, KC_MNXT, KC_MSTP, KC_BRID,
-    QK_BOOT,       KC_NO,       KC_NO,   KC_NO,               KC_NO,               KC_NO,   KC_MUTE, HYPR(KC_F5),  _______, KC_MUTE, KC_VOLD, KC_VOLU, LOCK_SCR, HYPR(KC_GRV),
-             KC_LCTL, _______, _______, _______, KC_LGUI,                                                           KC_LGUI, _______, _______, _______, KC_LALT
+    TO(_QWERTY),   KC_1,        KC_2,    KC_3,             KC_4,             KC_5,                                    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    LCTL(LGUI(KC_Q)),
+    KC_TAB,        KC_F1,       KC_F2,   KC_F3,            KC_F4,            KC_F5,                                   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_BRIU,
+    CW_TOGG,       LCTL(KC_UP), KC_CAPS, LSFT(LGUI(KC_3)), LSFT(LGUI(KC_4)), KC_F11,                                  KC_F12,  KC_MPRV, KC_MPLY, KC_MNXT, KC_MSTP, KC_BRID,
+    QK_BOOT,       KC_NO,       KC_NO,   KC_NO,            KC_NO,            LSFT(LGUI(KC_4)), KC_MUTE, HYPR(KC_F5),  _______, KC_MUTE, KC_VOLD, KC_VOLU, LOCK_SCR, HYPR(KC_GRV),
+                   KC_LCTL,     _______, _______,          _______,          KC_LGUI,                                 KC_LGUI, _______, _______, _______, KC_LALT
 ),
 
 /*
@@ -186,7 +186,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  MUTE |    |H(F5) |------+------+------+------+------+------|
  * | FUNC | LSFT | LCTL | LALT | LGUI | MEH  |-------|    |-------| MEH  | LGUI | LALT | LCTL | LSFT | FUNC |
  * `---------------------------------------------/       /     \      \---------------------------------------------'
- *            | LCTL |      |      | LGUI | LGUI |/       /         \      \ | LGUI |  =   |      |      | LALT |
+ *            | ENT  |      |      | SPC  | LGUI |/       /         \      \ | LGUI |      |      |      | LALT |
  *            `------------------------------------------'           '------''----------------------------------'
  */
 [_NAV] = LAYOUT(
@@ -194,7 +194,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,        KC_ESC,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,                          KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_EQL,  _______,
     TO(_NUMPAD),   KC_DEL,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,                         KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_BSPC, TO(_NUMPAD),
     TO(_FUNCTION), KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, MEH_KEY, KC_MUTE, HYPR(KC_F5),  MEH_KEY, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, TO(_FUNCTION),
-             KC_LCTL, _______, _______, KC_LGUI, KC_LGUI,                                KC_LGUI, KC_EQL,  _______, _______, KC_LALT
+             KC_ENT , _______, _______, KC_SPC , KC_LGUI,                                KC_LGUI, _______,  _______, _______, KC_LALT
 ),
 
 };

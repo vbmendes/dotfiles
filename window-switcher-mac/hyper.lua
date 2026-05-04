@@ -55,9 +55,21 @@ local function openApplication(appId, windowCycleId)
   local app = windowCycleId and hs.application.get(windowCycleId)
   if app == nil then app = hs.application.get(appId) end
 
-  if app == nil or not app:isFrontmost() then
-    log:i('launching / focusing', appId)
+  if app == nil then
+    log:i('launching', appId)
     hs.application.open(appId)
+    return
+  end
+
+  if not app:isFrontmost() then
+    local wins = sortByMRU(visibleWindows(app))
+    if #wins > 0 then
+      log:i('focusing MRU window of', appId)
+      wins[1]:focus()
+    else
+      log:i('no visible windows, activating', appId)
+      hs.application.open(appId)
+    end
     return
   end
 
