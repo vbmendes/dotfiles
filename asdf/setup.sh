@@ -8,6 +8,7 @@ PLUGINS=(
   "golang|https://github.com/asdf-community/asdf-golang.git"
   "nodejs|https://github.com/asdf-vm/asdf-nodejs.git"
   "rust|https://github.com/asdf-community/asdf-rust.git"
+  "terraform|https://github.com/asdf-community/asdf-hashicorp.git"
 )
 
 # ── Install asdf ───────────────────────────────────────────────────────────────
