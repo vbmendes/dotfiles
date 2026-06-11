@@ -48,3 +48,49 @@ The following globals are set in `~/.gitconfig`:
 [tag]
     gpgsign = true   # only if you opted in
 ```
+
+---
+
+# Changelog Helper
+
+`scripts/changelog` defines a shell function for creating changelog entries with the correct PR number automatically injected.
+
+## Usage
+
+Add the following line to the `.envrc` file in each repository where you want `changelog` available:
+
+```bash
+source /path/to/dotfiles/github/scripts/changelog
+```
+
+Then allow it with `direnv`:
+
+```bash
+direnv allow
+```
+
+Once set up, call `changelog` directly from anywhere inside that repo:
+
+```bash
+changelog <cmd> <message>
+```
+
+### Example
+
+```bash
+changelog added "Support dark mode"
+```
+
+## What it does
+
+1. Runs `clog entry <cmd> <message>` to create a changelog file
+2. Detects the GitHub repo from `git remote get-url origin`
+3. Looks up the latest PR number via `gh pr list` and increments it by one
+4. Appends `pr_number: <N>` to the changelog file
+5. Stages `changelogs/` and commits with `chore: Adding changelog`
+
+## Prerequisites
+
+- [`clog`](https://github.com/clog-tool/clog-cli) installed and accessible in `$PATH`
+- [`gh`](https://cli.github.com/) (GitHub CLI) authenticated
+- A git remote named `origin` pointing to a GitHub repository
