@@ -120,7 +120,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  MUTE |    |H(F5) |------+------+------+------+------+------|
  * | FUNC |   \  |C+G+SP|   [  |   ]  |   &  |-------|    |-------|circ' |quot' |grav' |RA+0  |RA+9  | FUNC |
  * `---------------------------------------------/       /     \      \---------------------------------------------'
- *            | LCTL | FUNC |      |      | LGUI |/       /         \      \ | LGUI | NAV  |      |      | LALT |
+ *            | LCTL | FUNC |      |      | LGUI |/       /         \      \ | NUMP | NAV  |      |      | LALT |
  *            `------------------------------------------'           '------''----------------------------------'
  */
 [_SYMBOLS] = LAYOUT(
@@ -128,7 +128,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,        KC_EXLM, KC_AT,               KC_HASH, KC_DLR,  KC_PERC,                         KC_ASTR, _______,  _______, _______,    KC_EQL,     _______,
     TO(_NUMPAD),   _______, _______,             KC_LPRN, KC_RPRN, KC_UNDS,                         KC_CIRC, KC_QUOT,  KC_GRV,  CEDILLA,    KC_BSPC,    TO(_NUMPAD),
     TO(_FUNCTION), KC_BSLS, LCTL(LGUI(KC_SPC)), KC_LBRC, KC_RBRC, KC_AMPR, KC_MUTE, HYPR(KC_F5),  CIRCSPC, QUOTSPC,  GRAVSPC, RALT(KC_0), RALT(KC_9), TO(_FUNCTION),
-             KC_LCTL, MO(_FUNCTION), _______, _______, KC_LGUI,                                     KC_LGUI, MO(_NAV), _______, _______,    KC_LALT
+             KC_LCTL, MO(_FUNCTION), _______, _______, KC_LGUI,                                     MO(_NUMPAD), MO(_NAV), _______, _______,    KC_LALT
 ),
 
 /*
