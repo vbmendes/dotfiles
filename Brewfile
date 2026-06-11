@@ -1,3 +1,6 @@
+tap "atlassian/homebrew-acli"
+
+brew "acli"
 brew "awscli"
 brew "colima"
 brew "gh"
