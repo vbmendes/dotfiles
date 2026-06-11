@@ -22,6 +22,6 @@ return {
   { 'p', '1Password' },
   { 'u', 'Cursor' },
   { 'v', 'Google Meet' },
-  { 'w', 'WhatsApp' },
+  { 'w', 'WhatsApp Web' },
   { 't', 'Warp' },
 }
